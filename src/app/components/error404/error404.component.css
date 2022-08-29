@@ -1,0 +1,13 @@
+.containerMain{
+    padding-left: 36%;
+    padding-top: 243px;
+}
+.display-5{
+    color: red;
+    font-weight: 400;
+    font-family: none;
+}
+p{
+    letter-spacing: 0.8px;
+    padding-top: 2px;
+}

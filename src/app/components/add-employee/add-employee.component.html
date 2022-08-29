@@ -1,0 +1,107 @@
+<section class="container py-2">
+  <div class="page-head mb-3">
+    <h2>Add Employee</h2>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <form [formGroup]="userForm" enctype="multipart/form-data">
+        <div class="row">
+
+          <!-- name -->
+          <div class="col-md-4 mb-1 mt-2">
+            <mat-form-field appearance="outline">
+              <mat-label>Full name</mat-label>
+              <input matInput formControlName="fullname" required />
+            </mat-form-field>
+          </div>
+
+          <!-- D.O.B -->
+          <div class="col-md-4 mb-1 mt-2">
+            <mat-form-field appearance="outline">
+              <mat-label>D.O.B</mat-label>
+              <input type="text" matInput [matDatepicker]="picker" formControlName="birthday" />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <!-- phone -->
+          <div class="col-md-4 mb-1 mt-2">
+            <mat-form-field appearance="outline">
+              <mat-label>Mobile number</mat-label>
+              <span matPrefix>+91 &nbsp;</span>
+              <input
+                type="tel"
+                matInput
+                formControlName="phone"
+                placeholder="555-555-1234"
+                maxlength="10"
+              />
+            </mat-form-field>
+          </div>
+
+          <!-- email -->
+          <div class="col-md-4 mb-1 mt-2">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput formControlName="eMail" />
+              
+            </mat-form-field>
+          </div>
+          <!-- Education -->
+          <div class="col-md-4 mb-1 mt-2">
+            <mat-form-field appearance="outline">
+              <mat-label>Education</mat-label>
+              <mat-select matNativeControl formControlName="education">
+                <mat-option value="default" selected>Select your Education</mat-option>
+                <mat-option *ngFor="let optionEdu of educationOptions; let j=index;" value="{{j}}">{{optionEdu | titlecase}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <!-- designation -->
+          <div class="col-md-4 mb-1 mt-2">
+            <mat-form-field appearance="outline">
+              <mat-label>Designation</mat-label>
+              <mat-select matNativeControl formControlName="designation">
+                <mat-option value="default" selected>Select your Designation</mat-option>
+                <mat-option *ngFor="let designOption of designationOptions; let i=index;" value="{{i}}">{{designOption | titlecase}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <!-- salary -->
+          <div class="col-md-4 mb-1 mt-2">
+            <mat-form-field appearance="outline">
+              <mat-label>Salary</mat-label>
+              <input type="number" matInput formControlName="salary" />
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-12 mb-4 mt-2 form-group">
+            <!-- aadhar upload -->
+            <div class="input-group mb-3">Aadhar card : &nbsp;&nbsp;&nbsp;<input type="file" formControlName="aadhar" #aadharFile></div>
+
+            <!-- gender -->
+            <mat-radio-group formControlName="gender">
+              <label class="lblstl1">Gender :</label> &nbsp;&nbsp;&nbsp;
+              <mat-radio-button type="radio" value="male" class="px-2"
+                >Male</mat-radio-button>
+              <mat-radio-button type="radio" value="female" class="px-2">
+                Female
+              </mat-radio-button>
+            </mat-radio-group>
+
+            <!-- check box -->
+            <div class="col-md-4 mb-4 mt-3">
+              <mat-checkbox class="example-margin" required>Accept the terms & condition's</mat-checkbox>
+            </div>
+
+            <!-- submit -->
+            <button type="submit" class="btn btn-info" [disabled]="!userForm.valid" (click)="userSubmit()">Submit form</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

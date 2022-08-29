@@ -1,0 +1,23 @@
+mat-toolbar{
+    position: sticky;
+    top: 0;
+    background:#3c474e;
+    color: #fff;
+    box-shadow: 0 0 3.5px #f0fbff;
+}
+.logo{
+    display: inline-flex;
+    align-items: center;
+}
+h1{
+    font-size: 1.7rem;
+}
+ul li {
+    list-style: none;
+}
+mat-button{
+    background: #dee2e6;
+}
+button.mat-menu-item {
+    width: 135px;
+}
