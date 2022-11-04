@@ -26,7 +26,7 @@
           </div>
 
           <!-- phone -->
-          <div class="col-md-4 mb-1 mt-2">
+          <!-- <div class="col-md-4 mb-1 mt-2">
             <mat-form-field appearance="outline">
               <mat-label>Mobile number</mat-label>
               <span matPrefix>+91 &nbsp;</span>
@@ -38,6 +38,14 @@
                 maxlength="10"
               />
             </mat-form-field>
+          </div> -->
+          <div class="col-md-4 mb-1 mt-2">
+            <label for="phn">Phone</label>
+            <input type="tel" class="form-control" required id="phn" formControlName="phone" maxlength="10" placeholder="555-555-1234" [ngClass]="{'is-invalid':submitted && f['phone'].errors}">
+
+            <!-- <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+              <img [src]="imageURL" [alt]="uploadForm.value.name">
+            </div> -->
           </div>
 
           <!-- email -->
@@ -80,7 +88,12 @@
 
           <div class="col-md-12 mb-4 mt-2 form-group">
             <!-- aadhar upload -->
-            <div class="input-group mb-3">Aadhar card : &nbsp;&nbsp;&nbsp;<input type="file" formControlName="aadhar" #aadharFile></div>
+            <div class="input-group mb-3">Aadhar card : &nbsp;&nbsp;&nbsp;<input type="file" accept="image/*" formControlName="aadhar" #aadharFile (change)="detectFiles($event)">
+              <img *ngFor="let url of urls" [src]="url" class="rounded mb-3" width="180"></div>
+            <!-- pan upload -->
+            <div class="input-group mb-3">Pan card : &nbsp;&nbsp;&nbsp;<input type="file" accept="image/*" formControlName="pan" #panFile></div>
+            <!-- profile upload -->
+            <div class="input-group mb-3">Profile Image : &nbsp;&nbsp;&nbsp;<input type="file" accept="image/*" formControlName="profile" #profileFile></div>
 
             <!-- gender -->
             <mat-radio-group formControlName="gender">
@@ -98,7 +111,7 @@
             </div>
 
             <!-- submit -->
-            <button type="submit" class="btn btn-info" [disabled]="!userForm.valid" (click)="userSubmit()">Submit form</button>
+            <button  class="btn btn-info" (click)="userSubmit()">Submit form</button>
           </div>
         </div>
       </form>

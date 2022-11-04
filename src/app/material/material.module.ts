@@ -13,6 +13,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [],
@@ -29,7 +30,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatNativeDateModule,
     MatGridListModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSidenavModule
   ],
   exports:[
     MatToolbarModule,
@@ -43,7 +45,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatNativeDateModule,
     MatGridListModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSidenavModule
   ]
 })
 export class MaterialModule { }

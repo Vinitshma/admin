@@ -10,7 +10,7 @@ export class ApiserviceService {
 
   constructor(private _http:HttpClient ) { }
 
-  apiUrl = "http://localhost:3000/user";
+  apiUrl = "http://localhost:3000/admin";
 
 
    // 1.post data
@@ -18,13 +18,20 @@ export class ApiserviceService {
     return this._http.post(this.apiUrl, data);
   }
 
-  // edit employee
-  getEmployees(){
-    return this._http.get<Employee>(this.apiUrl);
+  // 2.get employee
+  getEmployees():Observable<any>{
+    return this._http.get(this.apiUrl);
   };
 
-  // postEmployees(employee:Employee){
-  //   return this._http.post<Employee>(this.apiUrl, employee);
-  // }
+  getSingleData(id:any):Observable<any>{
+    let ids = id;
+    return this._http.get(`${this.apiUrl}/${ids}`)
+  }
+
+  // 4.delete
+  deleteData(id:any):Observable<any>{
+    let ids = id;
+    return this._http.delete(`${this.apiUrl}/${ids}`);
+  }
 
 } 

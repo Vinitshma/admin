@@ -9,6 +9,7 @@ export class Employee{
     jobExperience:number=0;
     salary:number=0;
     profile:string='';
+  data: any;
 };
 export class EmpInterface{
     fullname:string='';
@@ -19,5 +20,7 @@ export class EmpInterface{
     designation:string='';
     salary:number=0;
     aadhar:string='';
+    pan:string='';
+    profile:string='';
     gender:string='';
 }

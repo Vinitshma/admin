@@ -1,21 +1,19 @@
 <main>
     <div class="toolbar1">
-        <div class="add-employee">
-            <button type="button" class="btn btn-outline-success btn-lg" routerLink="/add-employee">Add employee</button>
-        </div> 
         <div class="search-employee">
             <input type="search" class="form-control" placeholder="Search Employee">
         </div>
+        <div class="add-employee">
+            <button type="button" class="btn btn-outline-success" routerLink="/addEmployee">Add employee</button>
+        </div> 
     </div>
     <div class="employees">
         <div class="row mt-5">
             <div class="col text-center">
-                <span class="text-secondary fs-2 fw-fold fst-italic">
-                    
+                <span class="text-secondary">
+                    <app-employee-list></app-employee-list>
                 </span>
             </div>
         </div>
     </div>
 </main>
-
-

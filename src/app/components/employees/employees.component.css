@@ -1,6 +1,7 @@
 main{
     width: 90%;
-    margin: 3rem auto 0px;
+    height: 100vh;
+    margin: 2rem auto 0px;
 }
 .toolbar1{
     display: flex;
@@ -8,7 +9,7 @@ main{
     align-items: center;
 }
 .search-employee{
-    width: 50%;
+    width: 30%;
     height: 90%;
     border-radius: 1rem;
 }

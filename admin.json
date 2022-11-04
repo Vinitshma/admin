@@ -1,0 +1,32 @@
+{
+  "admin": [
+    {
+      "fullname": "vinith",
+      "birthday": "2022-11-08T18:30:00.000Z",
+      "gender": "male",
+      "phone": "4685842367",
+      "eMail": "Vinith@gmail.com",
+      "education": "graduate",
+      "designation": "backend",
+      "salary": 16300,
+      "aadhar": "medal.png",
+      "pan": "$-99.png",
+      "profile": "medal.png",
+      "id": 2
+    },
+    {
+      "fullname": "hshf",
+      "birthday": "2022-11-13T18:30:00.000Z",
+      "gender": "male",
+      "phone": "7834583725",
+      "eMail": "Vhchdh@gmail.com",
+      "education": "PhD",
+      "designation": "backend",
+      "salary": 17864,
+      "aadhar": "medal.png",
+      "pan": "medal.png",
+      "profile": "medal.png",
+      "id": 4
+    }
+  ]
+}
