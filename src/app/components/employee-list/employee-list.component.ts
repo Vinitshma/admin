@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiserviceService } from 'src/app/services/apiservice.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { ApiserviceService } from 'src/app/services/apiservice.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor(private apiService:ApiserviceService) { }
+
+  constructor(private apiService:ApiserviceService, private router:Router,) { }
   readData:any;
   successMsg:any;
   
@@ -30,6 +32,12 @@ export class EmployeeListComponent implements OnInit {
       this.successMsg = res.message;
       this.getDbData();
     })
+  }
+
+  onEdit(id: any) {
+    this.router.navigate(["/addEmployee"], {
+      queryParams: { editId: id }
+    });
   }
 
 

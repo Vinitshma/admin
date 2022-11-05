@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiserviceService } from 'src/app/services/apiservice.service';
 import { EmpInterface } from '../models/employee.model';
 
@@ -35,14 +35,19 @@ export class AddEmployeeComponent implements OnInit {
   EmpDetails:EmpInterface[];
   submitted:boolean=false;
   urls = new Array<string>();
+  id:any;
   
 
-  constructor(private apiService:ApiserviceService, private fb:FormBuilder, private router:Router) { 
+  constructor(private apiService:ApiserviceService, private fb:FormBuilder, private router:Router, private route:ActivatedRoute) { 
     this.userForm = fb.group({});
     this.EmpDetails=[];
   }
 
   ngOnInit(): void {
+    if (this.route.snapshot.queryParamMap.get("editId")) {
+      this.id = this.route.snapshot.queryParamMap.get("editId");
+      this.getItemDetailsById(this.id);
+    }
     this.userForm = this.fb.group({
       fullname: this.fb.control('', Validators.required),
       birthday: this.fb.control(''),
@@ -57,6 +62,19 @@ export class AddEmployeeComponent implements OnInit {
       profile: this.fb.control('')
     });
   }
+
+  getItemDetailsById(id: any) {
+    this.apiService.getSingleData(id).subscribe((data: any) => {
+      if (data) {
+      // this.updateEditView(data);
+      }
+    });
+  }
+
+  
+  // editEmployeeClicked(){
+  //   this.onEditEmployee.emit(this.employee.id);
+  // }
 
 
   detectFiles(event:any) {
